@@ -6,6 +6,7 @@ import TodoItem from './todoItem';
 
 const Todos = ({ fetchTodos, createNewTodo, todos }) => {
     const [createTodo, setCreateTodo] = useState({ title: '' });
+    const [status, setStatus] = useState('')
     useEffect(() => {
         fetchTodos();
     },[]);
@@ -14,23 +15,29 @@ const Todos = ({ fetchTodos, createNewTodo, todos }) => {
             setCreateTodo({title:''})
         }
     }, [todos.newTodoAdded]);
+
     const addTodo = (e) => {
         createNewTodo(createTodo);
     }
+    // const sortTodos = (type) => {
+
+    // }
     return (
         <>
+        
             <div className="input">
-                <input type="text" value={createTodo.title} name="title" onChange={(e) => setCreateTodo({ "title": e.target.value })} />
+                <input type="text" placeholder = "Add tasks ..." value={createTodo.title} name="title" onChange={(e) => setCreateTodo({ "title": e.target.value })} />
                 <button onClick={(e) => addTodo(e)}>add</button>
             </div>
-            <div>
-                <button>All</button>
-                <button>Active</button>
-                <button>Completed</button>
+            {/* <div>
+                <button onClick={()=>sortTodos('All')}>All</button>
+                <button onClick={()=>sortTodos('Active')}>Active</button>
+                <button onClick={()=>sortTodos('Completed')}>Completed</button>
 
-            </div>
-            <div style={{display:'flex'}}>
+            </div> */}
+            <div style={{display:'flex', flexWrap:'wrap', width:'100%', justifyContent:'flex-start'}}>
             {todos.todos?.map((ele) => {
+            
                 return (
                     <TodoItem key={ele.id} todos={ele} />
                 )

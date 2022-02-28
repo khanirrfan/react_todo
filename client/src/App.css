@@ -28,13 +28,13 @@ input:focus {
 }
 
 button {
-  margin-right: 8px;
-  margin-left: 8px;
+  margin-right: 5px;
+  margin-left: 5px;
   background-color: rgb(214, 213, 213s);
   border:none;
   border-radius: 5px;
   height: 30px;
-  min-width: 60px;
+  min-width: 50px;
   max-width: 100px;
   padding: 5px;
 }

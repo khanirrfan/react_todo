@@ -3,31 +3,50 @@ import { connect } from 'react-redux';
 import { deleteTodo, updateTodo } from '../../redux/actions/todos';
 
 const TodoItem = ({ deleteTodo, updateTodo, todos }) => {
-	const [update, setUpdate] = useState(false);
-	const [todoId, setTodoId] = useState(null)
-	const handleCheckboxClick = () => {
-
-	};
+	const [updateValue, setUpdateValue] = useState(false);
+	const [stateValue, setStateValue] = useState('')
 
 	const handleDeleteClick = (id) => {
 		deleteTodo(id);
 	};
 	const handleUpdateClick = (update) => {
-		updateTodo(update);
-		// setUpdate(!update)
+		console.log(stateValue);
+		debugger
+		const input = {...update, title: stateValue}
+		if(stateValue !== ''){
+			updateTodo(input);
+		} else {
+			alert('Title has not been changed');
+		}
 
+	}
+	const changeToUpdate = (todo) => {
+		console.log('todo', todo);
+		setUpdateValue(!updateValue);
+		setStateValue(todo.title);
+	}
+	const changeStatus = (todos) => {
+		const updateBody = {
+			...todos, status:'completed'
+		}
+		updateTodo(updateBody);
 	}
 	return (
 		<>
-			<div style={{ height: '80px', border: '1px solid', width: '100%', minWidth: '200px', margin: '10px' }}>
+			<div style={{ height: '80px', border: '1px solid', minWidth: '250px', margin: '10px' }}>
 				<div style={{ display: 'flex', justifyContent:'space-between' , alignContent: 'center', alignItems: 'center', height: '40px', margin:'0 10px' }}>
-					<span>{todos?.title}</span> 
+					{
+					updateValue === false ? 
+						<span onClick={()=>changeToUpdate(todos)}>{todos?.title}</span> 
+						: <input style={{color:'red'}} type="text" value = {stateValue} onChange={(e) =>setStateValue(e.target.value)}/> 
+					}
 					{todos.status === 'completed' ? <span>✅</span> :''}
 				</div>
-				<button onClick={() => handleDeleteClick(todos.id)} className='btn btn-danger'>
+				<button onClick={() => handleDeleteClick(todos.id)}>
 					Delete
 				</button>
-				<button onClick={() => handleUpdateClick(todos)} className='btn btn-danger'>update</button>
+				{todos.status !== 'completed' ? <button onClick={() =>changeStatus(todos)}>Done</button> : ''}
+				{todos.status !== 'completed' ? <button onClick={() => handleUpdateClick(todos)}>update</button> : ''}
 				
 			</div>
 		</>

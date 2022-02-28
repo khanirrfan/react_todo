@@ -40,15 +40,8 @@ export const createNewTodo = (bodyParams) => async dispatch => {
 }
 
 export const updateTodo = (update) =>async dispatch => {
-    console.log("update", update);
-    debugger
-    const updateBody = {
-        ...update,
-        title:'updated title'
-    }
     try {
-        const res = await axiosInterface.put(`/todos/${update.id}`, updateBody);
-
+        const res = await axiosInterface.put(`/todos/${update.id}`, update);
         dispatch({
             type:UPDATE_TODO,
             payload:res.data
