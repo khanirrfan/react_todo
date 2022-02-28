@@ -1,0 +1,11 @@
+export const FETCH_TODOS = "FETCH_TODOS";
+export const FETCH_TODOS_ERROR = "FETCH_TODOS_ERROR";
+
+export const CREATE_TODO = "CREATE_TODO";
+export const CREATE_TODO_ERROR="CREATE_TODO_ERROR";
+
+export const UPDATE_TODO = "UPDATE_TODO";
+export const UPDATE_TODO_ERROR = "UPDATE_TODO_ERROR";
+
+export const DELETE_TODO = "DELETE_TODO";
+export const DELETE_TODO_ERROR = "DELETE_TODO_ERROR";

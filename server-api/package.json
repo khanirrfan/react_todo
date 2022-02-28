@@ -1,0 +1,14 @@
+{
+  "name": "getir-api",
+  "version": "1.0.0",
+  "description": "a todo app",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server -p 8080 -w db.json"
+  },
+  "author": "irrfan13",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}
