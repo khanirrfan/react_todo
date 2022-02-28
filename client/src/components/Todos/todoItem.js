@@ -33,7 +33,7 @@ const TodoItem = ({ deleteTodo, updateTodo, todos }) => {
 	}
 	return (
 		<>
-			<div style={{ height: '80px', border: '1px solid', minWidth: '250px', margin: '10px' }}>
+			<div style={{ color:'#7247AE',height: '80px',  minWidth: '250px', margin: '10px', borderRadius:'12px', background:'#fff', padding:'10px' }}>
 				<div style={{ display: 'flex', justifyContent:'space-between' , alignContent: 'center', alignItems: 'center', height: '40px', margin:'0 10px' }}>
 					{
 					updateValue === false ? 

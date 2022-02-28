@@ -27,7 +27,7 @@ const Todos = ({ fetchTodos, createNewTodo, todos }) => {
         
             <div className="input">
                 <input type="text" placeholder = "Add tasks ..." value={createTodo.title} name="title" onChange={(e) => setCreateTodo({ "title": e.target.value })} />
-                <button onClick={(e) => addTodo(e)}>add</button>
+                <button onClick={(e) => addTodo(e)}>Add task</button>
             </div>
             {/* <div>
                 <button onClick={()=>sortTodos('All')}>All</button>
