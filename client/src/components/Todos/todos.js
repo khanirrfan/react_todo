@@ -17,6 +17,10 @@ const Todos = ({ fetchTodos, createNewTodo, todos }) => {
     }, [todos.newTodoAdded]);
 
     const addTodo = (e) => {
+        if(e.target.value === ''){
+            alert("Please enter task name");
+            return false;
+        }
         createNewTodo(createTodo);
     }
     // const sortTodos = (type) => {
