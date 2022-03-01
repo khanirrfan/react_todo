@@ -10,8 +10,6 @@ const TodoItem = ({ deleteTodo, updateTodo, todos }) => {
 		deleteTodo(id);
 	};
 	const handleUpdateClick = (update) => {
-		console.log(stateValue);
-		debugger
 		const input = {...update, title: stateValue}
 		if(stateValue !== ''){
 			updateTodo(input);
@@ -21,7 +19,6 @@ const TodoItem = ({ deleteTodo, updateTodo, todos }) => {
 
 	}
 	const changeToUpdate = (todo) => {
-		console.log('todo', todo);
 		setUpdateValue(!updateValue);
 		setStateValue(todo.title);
 	}

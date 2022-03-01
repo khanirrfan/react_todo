@@ -55,7 +55,6 @@ export const updateTodo = (update) =>async dispatch => {
 }
 
 export const deleteTodo = (id)=> async dispatch => {
-    console.log("id", id)
     try {
         const res = await axiosInterface.delete(`/todos/${id}`);
         dispatch({
