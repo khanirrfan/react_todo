@@ -17,7 +17,7 @@ const Todos = ({ fetchTodos, createNewTodo, todos }) => {
     }, [todos.newTodoAdded]);
 
     const addTodo = (e) => {
-        if(e.target.value === ''){
+        if(createTodo.title === ''){
             alert("Please enter task name");
             return false;
         }
